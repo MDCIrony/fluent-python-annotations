@@ -1,4 +1,6 @@
 import collections
+from random import choice
+from typing import Generator
 
 Card = collections.namedtuple("Card", ["rank", "suit"])
 
@@ -15,6 +17,18 @@ class FrenchDeck:
 
     def __getitem__(self, position):
         return self._cards[position]
+
+    def __iter__(self, card_pos: int = 5) -> Generator:
+        while True:
+            new_choice = choice(self._cards)
+
+            if new_choice == self._cards[card_pos]:
+                break
+
+            yield new_choice
+
+    def get_random(self):
+        return choice(self._cards)
 
 
 suit_values = dict(spades=3, hearts=2, diamonds=1, clubs=0)
