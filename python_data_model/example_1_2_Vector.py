@@ -7,7 +7,7 @@ class Vector:
         self.y = y
 
     def __repr__(self) -> str:
-        return f"Vector({self.x!r}, {self.y!r})"
+        return f"Vector({self.x!r}, {self.y!r})"  # -> !r is used for a correct type representation
 
     def __abs__(self) -> float:
         return math.hypot(self.x, self.y)
